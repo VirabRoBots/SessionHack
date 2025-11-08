@@ -1,10 +1,12 @@
-FROM nikolaik/python-nodejs:python3.9-nodejs18
-RUN apt-get update -y && apt-get upgrade -y \
-    && apt-get install -y --no-install-recommends ffmpeg \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-COPY . /app/
-WORKDIR /app/
-RUN pip3 install --upgrade pip
-RUN pip3 install -r requirements.txt
-CMD python3 -m JarvisV2
+FROM python:3.12-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -U pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+CMD ["python3", "-m", "Hack"]

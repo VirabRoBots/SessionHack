@@ -1,1 +1,1 @@
-worker: python3 -m JarvisV2
+worker: python -m Hack
