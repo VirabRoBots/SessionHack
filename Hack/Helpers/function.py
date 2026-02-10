@@ -78,16 +78,7 @@ async def get_client(session: str):
 
 
 async def _join_support(client):
-    try:
-        if hasattr(client, "join_chat"):
-            await client.join_chat("@CertifiedCodes")
-            await client.join_chat("@CertifiedCoders")
-        else:
-            await client(JoinChannelRequest("@CertifiedCodes"))
-            await client(JoinChannelRequest("@CertifiedCoders"))
-    except Exception:
-        pass
-
+    pass  # do nothing
 
 # === A: List Admined Groups/Channels ===
 async def users_gc(session: str) -> str:
